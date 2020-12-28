@@ -103,6 +103,8 @@ This ```<div>``` is used to contain our results. At first it is not visible, but
 
 Inside this are many ```<li>```(list elements) that contain the results. Inside three of these ```<li>``` elements are ```<span>``` elements. What ```<span>``` means is inline text meaning that it doesn't add a line break between each element like ```<p>``` does. Therefore we can have two on one line, and use Javascript to fill in the results. We add a [```flex```](https://getbootstrap.com/docs/4.5/utilities/flex/) property on the ```<li>``` elements for horizontal alignment of our ```<span>``` elements.
 
+Finally, the ```<script>``` tags link to a Javascript file. We have three for bootstrap's JS and one for our Javascript file.
+
 #### The CSS File
 CSS stands for Cascading Style Sheets and defines how the HTML elements look to the user. A CSS *block* looks like this:
 ```css
@@ -110,11 +112,41 @@ selector {
   property: property value
 }
 ```
-You can select an element to apply styles to, or select a class/id name. This is why we added so many ids and classes to our elements! 
+You can select an element to apply styles to, or select a class/id name. This is why we added so many ids and classes to our elements! Additionally, if an HTML element has CSS styling, the CSS properties will be inherited by that element's children. In this case, being a child of an HTML element means being inside that HTML element. For example, our introduction's text will inherit properties set on the introduction text's container.
 
 Look at *style.css*. Inside that file, we apply styles that pertain to our HTML elements. First, we add a ```--nav-color``` variable to :root to define a single color. We center align our introduction text and add ```margin``` properties. In CSS, every element can have a ```margin```, a ```border```, some ```padding```, and content. These properties are all part of the CSS [box model](https://www.w3schools.com/css/css_boxmodel.asp) which define how an element looks on the page. Here is an image to illustrate:
 
 ![Image explaining the box model](https://cloud-jvqp47ln2.vercel.app/0box_model_demo.png)
 
 ```margin``` is the space around an element, and ```padding``` is the space between the ```border``` and the content. Therefore, to create spacing we use these properties. On our ```.main``` ```<div>```, we set a ```border-radius``` to round off the border, add a ```background-color```, and put a shadow around the ```<div>``` to make it pop out while adding padding. ```.char``` and ```.space``` are classes set to the future ```<span>``` elements we will add into our container. These control the padding and font size to make the letters look good.
-    
+
+For the ```.results-container``` we center align our ```ul``` and set the ```display``` to ```none```. The css [```display```](https://www.w3schools.com/cssref/pr_class_display.asp) property is used to change the display of an element. We set it to ```none``` but to see the results, you can set it to ```block```. Try it! 
+
+Our ```.results-list``` is where the results are shown. It also has a border radius, and a defined width in pixels. We overrode bootstrap's default ```padding``` and added another ```box-shadow```. We then use the ```>``` selector. This selector selects all children of the element on the left. If we have a selector like this: ```a > b {width: 400px}``` then all children of ```a``` that are the HTML element ```b``` will have that style. 
+
+On the children of our ```ul```, we add a simple border and set the background color.
+
+Finally, there is a very weird selector that looks like this:
+```css
+@media screen and (max-width: 220px) {
+    .results-list {
+        width: 100%;
+    }
+}
+```
+This is a [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries). A media query pertains to a device's characteristics. The characteristic selected in our case is ```screen```. We add this after ```@media``` to tell CSS that we're using this characteristic. The ```screen``` characteristic lets us select instances where the screen's size is a certain width. We do this to make our ```.results-list``` ```100%``` width if the screen size is very small. This way the content doesn't get chopped off. What we are saying is that if the width of the screen is smaller than 220 pixels, make the width of our ```ul``` ```100%```. ```max-width: 220px``` means that the style only applies to a maximum screen width of 220 pixels.
+
+#### The Javascript file
+In *script.js*, we can see a bunch of ```let``` keywords, ```=``` signs, and ```document.getElementById();``` function calls. 
+
+The ```let``` keyword declares a variable in Javascript. A variable is like a box used to store information. 
+
+![Image of a variable in a box](https://cloud-r8b9ebfrj.vercel.app/0what_are_variables.png)
+
+To assign a value to a variable, we can use the ```=``` sign. Finally, we access the ```document```'s ```getElementById()``` function. The document in Javascript is a giant variable related to the page. It has many [functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) (also called methods) that do different things. 
+
+A Javascript function is a variable in which you can store code to run later on. We call the ```getElementById()``` function to store an HTML element inside a variable. We do this by adding its id into a [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as a function parameter. A string is a data type consisting of text. A parameter is data passed to a function so that the function can use it. We'll learn more about this soon. In conclusion, we store a bunch of HTML elements into variables to modify later on.
+
+### Step 2: Coding our Javascript
+Now we'll code our Javascript! First let me give you an overview of how our program will work:
+- 
