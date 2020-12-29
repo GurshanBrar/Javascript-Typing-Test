@@ -155,7 +155,7 @@ Now we'll code our Javascript! Our program will be split up into three blocks th
 
 We'll code our program section by section!
 
-#### Section 1: Variables
+#### Section 1:
 All the variables we declare on the top will be available to our functions! So we don't have to worry about variable accessibility. 
 
 Lets start off by creating an ```invalidKeys``` array and a text string. Add this at the end:
@@ -235,7 +235,7 @@ We finally call our ```handleKey(key)``` function, and give the function access 
 #### Check In
 Check against [this repl](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Check-in#script.js) for assurance.
 
-#### Section 3
+#### Section 3:
 In this section we make our ```handleKey(key)``` function! This function change the color of the key, changes the position of the key in the array, and forces backspaces. To start, add this at the end:
 ```javascript
 function handleKey(key) {
@@ -277,7 +277,7 @@ If there is a backspace needed, we only execute code if the ```key``` is a backs
 
 At the end we make sure that if the current position has been incremented to ```textArr.length```, we stop the timer function and call our ```handleEnd()``` function to show results. Since array indexes reference **one more than the index value** having an index equivalent to the array's length would reference a non-existant value.
 
-#### Section 4
+#### Section 4:
 Now we need to add the final segement of our code: the ```handleEnd()``` function. This function calculates the results, modifies the HTML, and changes the display properties that hide the results. Add this at the end:
 ```javascript
 function handleEnd() {
