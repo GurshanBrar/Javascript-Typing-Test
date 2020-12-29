@@ -6,7 +6,7 @@ img: 'https://cloud-gny03pu07.vercel.app/0javascript_typing_test_cover.png'
 ---
 
 ### First up, the project
-Obviously we need to know what we'll build before starting the workshop, so here's the [final demo](https://js-typing-test-final.gurshanbrar.repl.co/) and the [final code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Final). These images show our final project:
+Obviously we need to know what we'll build before starting the workshop, so here's the [final demo](https://javascript-typing-test-final.gurshanbrar.repl.co/) and the [final code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Final). These images show our final project:
 
 ![Screenshot of the final site for the test portion](https://cloud-1v9gb7z3j.vercel.app/0javascript_typing_test_final_image_1.png)
 
