@@ -25,9 +25,9 @@ An IDE (Integrated Development Environment) is just fancy speak for where your c
 2. All you need is an internet connection and a web browser
 3. It's really easy to fork (copy) from
 
-## Let's start!
+# Let's start!
 
-### Step 0: Forking the starter repl
+## Step 0: Forking the starter repl
 To fork (copy) the starter template,
 1. Navigate to the [Starter Template](https://repl.it/@GurshanBrar/Javascript-Snake-Starter#index.html)
 2. Edit anything and the template will be copied as one of your repls
@@ -35,7 +35,7 @@ To fork (copy) the starter template,
 
 You can make a change now, like changing the page's title in the ```<title>``` tag or adding a random space. Another option is to wait until we start coding Javascript!
 
-### Step 1: Explaining the starter template
+## Step 1: Explaining the starter template
 To explain the starter template, I'll go over the HTML, CSS, and Javascript files one by one
 
 #### The HTML file
@@ -147,6 +147,60 @@ To assign a value to a variable, we can use the ```=``` sign. Finally, we access
 
 A Javascript function is a variable in which you can store code to run later on. We call the ```getElementById()``` function to store an HTML element inside a variable. We do this by adding its id into a [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as a function parameter. A string is a data type consisting of text. A parameter is data passed to a function so that the function can use it. We'll learn more about this soon. In conclusion, we store a bunch of HTML elements into variables to modify later on.
 
-### Step 2: Coding our Javascript
-Now we'll code our Javascript! First let me give you an overview of how our program will work:
-- 
+## Step 2: Coding our Javascript
+Now we'll code our Javascript! Our program will be split up into three blocks that provide functionality: ```handleKey(key)```, ```handleEnd()```, and the event listener. We'll also have variables defined at the beginning to assist these three blocks. Let me explain how our program will flow:
+1. First we'll declare variables for our text, time, position, etc.
+2. Then we'll start our event listener. Everytime a key is pressed it will check if the key is a valid symbol or letter. It'll forward the key to ```handleKey(key)``` if it is, otherwise ignore it.
+3. Everytime ```handleKey(key)``` gets a character, it checks it against the text. If it's correct it increments the position in the text and changes the letter's color to green. Otherwise it changes it to red and sets a ```backspaceNeeded``` variable.
+4. When the user is done typing, the ```handleEnd()``` function computes the results and changes the CSS ```display``` property and modifies the HTML content.
+
+We'll code our program section by section!
+
+#### Section 1: Variables
+All the variables we declare on the top will be available to our functions! So we don't have to worry about variable accessibility. 
+
+Lets start off by creating an ```invalidKeys``` array and a text string. Add this at the end:
+```javascript
+const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(
+    ' ',
+);
+const text =
+    'Hello there! I hope your day is going well. Thanks for trying out my typing test. Did you know that this project was actually made for Hackclub? Hackclub is a worldwide, student led coding club for teens that strives to provide a comfortable and educational place to collaborate with others!';
+```
+The first variable is used by our event listener and lists all the keys we won't count as *errors* when typing. We use Javascript's built-in [```split()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) function to separate the string into an [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
+
+An array in Javascript is a variable that can store a list of many variables. A specific variable inside an array is accesible by an index value that starts at zero. Index 0 corresponds to the first element in the array. Index 1 contributes to the second, and so on. Arrays are initialized like this: ```let array = ['string', 'apple']```.
+
+The ```split()``` function splits a string into an array based on a delimeter. The delimeter is the string we add in its parantheses as a parameter. So every time it sees the parameter we passed in, it makes a new array element.
+
+Finally we have a string that defines what text we'll add for our typing test. Add this at the end:
+```javascript
+const textArr = text.split('');
+const htmlArr = textArr.map((item, index, array) => {
+    if (item === ' ') {
+        return `<span class="space" id="span${index}">${item}</span>`;
+    }
+    return `<span class="char" id="span${index}">${item}</span>`;
+});
+```
+We split our text string into an array for easier checking. Now, every letter is an element in the array. 
+
+To show text in our HTML, we'll need to split every letter into a ```<span>``` element. We use Javascript's ```map()``` method to make a new array based on a certain condition. ```map()``` goes through ```textArr``` and calls a function. That function is used to tell the ```map()``` function what to add into the new array, also. Whatever the function returns, the ```map()``` function adds in to ```htmlArr```. If the character in ```textArr``` is a space we assign a different CSS class. 
+
+A new syntax is used: ``` `span${index}` ```. These backticks allow you to easily enter variables in a string. Use the dollar sign and brackets to add in a variable. Now, lets add in the final variables at the end:
+```javascript
+let errors = [];
+textContainer.innerHTML = htmlArr.join('');
+let firstTime = true;
+let currentPos = 0;
+let backspaceNeeded = false;
+let currentTime = 0;
+let repeat;
+```
+I'll go over this line by line. We make an empty ```errors``` array to store any mistakes made when typing. We join together the ```<span>``` elements in our ```htmlArr``` into a string using the ```join()``` function. That function joins all elements of an array together with a string in between. We make a ```firstTime``` variable to check if it's the user's first letter typed. ```currentPos``` is a counter used to track the position of the user in the ```textArr``` array. ```backspaceNeeded``` tells the program that a backspace has to be typed to continue. ```currentTime``` simply stores the time in seconds, and repeat is used to set an interval for the timer. I'll get back to the interval later.
+
+#### Section 2: 
+
+
+
+
