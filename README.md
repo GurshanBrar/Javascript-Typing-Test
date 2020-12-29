@@ -170,6 +170,8 @@ The first variable is used by our event listener and lists all the keys we won't
 
 An array in Javascript is a variable that can store a list of many variables. A specific variable inside an array is accesible by an index value that starts at zero. Index 0 corresponds to the first element in the array. Index 1 contributes to the second, and so on. Arrays are initialized like this: ```let array = ['string', 'apple']```.
 
+![Image that explains index]()
+
 The ```split()``` function splits a string into an array based on a delimeter. The delimeter is the string we add in its parantheses as a parameter. So every time it sees the parameter we passed in, it makes a new array element.
 
 Finally we have a string that defines what text we'll add for our typing test. Add this at the end:
@@ -196,7 +198,9 @@ let backspaceNeeded = false;
 let currentTime = 0;
 let repeat;
 ```
-I'll go over this line by line. We make an empty ```errors``` array to store any mistakes made when typing. We join together the ```<span>``` elements in our ```htmlArr``` into a string using the ```join()``` function. That function joins all elements of an array together with a string in between. We make a ```firstTime``` variable to check if it's the user's first letter typed. ```currentPos``` is a counter used to track the position of the user in the ```textArr``` array. ```backspaceNeeded``` tells the program that a backspace has to be typed to continue. ```currentTime``` simply stores the time in seconds, and repeat is used to set an interval for the timer. I'll get back to the interval later.
+I'll go over this line by line. We make an empty ```errors``` array to store any mistakes made when typing. We join together the ```<span>``` elements in our ```htmlArr``` into a string using the ```join()``` function. That function joins all elements of an array together with a string in between. We make a ```firstTime``` variable to check if it's the user's first letter typed. 
+
+```currentPos``` is a counter used to track the position of the user in the ```textArr``` array. ```backspaceNeeded``` tells the program that a backspace has to be typed to continue. ```currentTime``` simply stores the time in seconds, and repeat is used to set an interval for the timer. I'll get back to the interval later.
 
 #### Section 2: 
 Now that we've declared all of our variables, we need to start our event listener. The event listener simply consists of a function that runs when a key is pressed. The event listener will call the ```handleKey(key)``` function that takes care of the key that was pressed. Add this code at the end of your file:
@@ -216,9 +220,11 @@ document.addEventListener('keydown', event => {
 ```
 We add a listener on the Javascript ```document``` variable, using Javascript's built in method called [```addEventListener('eventType', function)```](https://www.w3schools.com/jsref/met_element_addeventlistener.asp). This function adds a listener on whatever variable we call it from. Since we called it from ```document``` it adds one on the whole page. The function takes two arguments: the type of event that will call the function, and the code to run once the event happens. 
 
+![Image explaining ```document```]()
+
 The first argument is the ```'keydown'``` string. This string tells the listener to activate once any key is pressed down. The second argument is a function. That function is called whenever our listener picks up a ```'keydown'``` event. The function takes one argument: the ```event``` variable. This variable contains information about our event.
 
-The function we use first checks if ```event.key``` is a space(empty string). It does this by using the ```===``` operator. That operator compares two values. If they are the same it returns ```true```. 
+The function we use first checks if ```event.key``` is a space(empty string). It does this by using the ```===``` operator. That operator compares two values. If they are the same it returns ```true```. To check what ```event```'s properties are on a certain keypress, check out [keycode.info](keycode.info).
 
 ```event.key``` returns the literal string representation of the key that was pressed. If it is a space, we use the ```event``` [```preventDefault()```](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) function. That function prevents the normal behavior of the key. Without this, whenever we type a space the page scrolls automatically to the end (which is very annoying).
 
@@ -271,7 +277,9 @@ function handleKey(key) {
 ```
 We first get the span element that corresponds with the current position. We get its [```style```](https://www.w3schools.com/jsref/prop_html_style.asp) property to modify the CSS. 
 
-We make sure the there isn't a backspace needed. If there isn't, we validate the key pressed by comparing its equality with the current position in the ```textArr```. If it's correct we set the color to green and increment the ```currentPos``` variable. If it isn't correct we check if it's a space or letter, than change either the ```backgroundColor``` or the ```color```. If it isn't correct we also set ```backspaceNeeded``` to true and add the letter into the ```errors``` array.
+We make sure the there isn't a backspace needed. If there isn't, we validate the key pressed by comparing its equality with the current position in the ```textArr```. If it's correct we set the color to green and increment the ```currentPos``` variable. 
+
+If it isn't correct, we check if it's a space or letter, than change either the ```backgroundColor``` or the ```color```. If it isn't correct we also set ```backspaceNeeded``` to true and add the letter into the ```errors``` array.
 
 If there is a backspace needed, we only execute code if the ```key``` is a backspace. We change the color like before, and reset the ```backspaceNeeded``` variable.
 
@@ -298,15 +306,17 @@ First off, we calculate the time, the wpm, and the accuracy. If you want to lear
 
 As for the time, we get the minutes first. To get the minutes we divide the time by 60. The remainder is chopped off because we use ```Math.floor()```(```Math.floor()``` rounds the result down). Then we the leftover seconds and store it in ```seconds```. We modify the ```innerHTML``` properties of our ```wpmText```, ```accuracyText```, and ```time``` variables. Remember that these variables were declared at the very top of our file and refer to HTML elements. 
 
+![Image describing ```innerHTML```, ```outerHTML```, and ```innerText```]()
+
 Finally, we set the display of our ```main``` container to ```'none'``` and the ```resultsContainer``` to ```'block'```. This hides the text and shows the results.
 
 ## Step 3: Extras
+
+![Image resembling finishing a race]()
+
 Thats it! We've finished coding the typing test workshop. You should feel proud of yourself because you learned many new skills such as functions, backticks, operators, ```if``` statements, and more! This workshop is pretty hackable, though. Here are some examples of extending it:
 - A try again button! We can add a try again button to our workshop! Here's the [final demo]() and [source code]().
 - Save our results in ```localStorage```. ```localStorage``` is a place on a user's browser to store data. We can store the results there, and fetch them every time we complete the typing test! [final demo]() and [source code]().
 - Add a nice little navbar. We can add a navbar that links to your github and has a link to Hackclub. [final demo]() and [source code]().
 
 If you have any questions, you can ping me on slack(@Gurshan) or [my github](https://github.com/gurshanbrar). 
-
-
-
