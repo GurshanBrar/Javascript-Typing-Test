@@ -297,14 +297,14 @@ function handleEnd() {
     let seconds = currentTime - multiples * 60;
     wpmText.innerHTML = `${wpm} wpm`;
     accuracyText.innerHTML = `${accuracy}%`;
-    time.innerHTML = `${multiples} m ${seconds} s`;
+    timeText.innerHTML = `${multiples} m ${seconds} s`;
     main.style.display = 'none';
     resultsContainer.style.display = 'block';
 }
 ```
 First off, we calculate the time, the wpm, and the accuracy. If you want to learn how they are calculated, refer [to this site](https://www.speedtypingonline.com/typing-equations). 
 
-As for the time, we get the minutes first. To get the minutes we divide the time by 60. The remainder is chopped off because we use ```Math.floor()```(```Math.floor()``` rounds the result down). Then we the leftover seconds and store it in ```seconds```. We modify the ```innerHTML``` properties of our ```wpmText```, ```accuracyText```, and ```time``` variables. Remember that these variables were declared at the very top of our file and refer to HTML elements. 
+As for the time, we get the minutes first. To get the minutes we divide the time by 60. The remainder is chopped off because we use ```Math.floor()```(```Math.floor()``` rounds the result down). Then we the leftover seconds and store it in ```seconds```. We modify the ```innerHTML``` properties of our ```wpmText```, ```accuracyText```, and ```timeText``` variables. Remember that these variables were declared at the very top of our file and refer to HTML elements. 
 
 ![Image describing ```innerHTML```, ```outerHTML```, and ```innerText```](https://cloud-ei7nqg21v.vercel.app/1inner_html_demo.png)
 
@@ -316,7 +316,7 @@ Finally, we set the display of our ```main``` container to ```'none'``` and the 
 
 Thats it! We've finished coding the typing test workshop. You should feel proud of yourself because you learned many new skills such as functions, backticks, operators, ```if``` statements, and more! This workshop is pretty hackable, though. Here are some examples of extending it:
 - A try again button! We can add a try again button to our workshop. Here's the [final demo](https://javascript-typing-test-final-1.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v1#index.html).
-- Save our results in ```localStorage```. ```localStorage``` is a place on a user's browser to store data. We can store the results there, and fetch them every time we complete the typing test! [final demo]() and [source code]().
+- Save our results in ```localStorage```. ```localStorage``` is a place on a user's browser to store data. We can store the results there, and fetch them every time we complete the typing test! [final demo](https://javascript-typing-test-v2.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v2#script.js).
 - Add a nice little navbar. We can add a navbar that links to your github and has a link to Hackclub. Just make sure to read the comment inside the HTML file. [final demo](https://javascript-typing-test-v3.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v3#index.html).
 
 If you have any questions, you can ping me on slack(@Gurshan) or [my github](https://github.com/gurshanbrar). 
