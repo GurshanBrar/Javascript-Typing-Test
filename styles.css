@@ -1,0 +1,132 @@
+:root {
+    --nav-color: #f7f7f7;
+}
+
+.hackclub-logo {
+    position: absolute;
+    top: 0;
+}
+.github-logo {
+    margin-left: 56px;
+}
+.github-logo:hover,
+.github-logo:focus {
+    fill: gray;
+}
+
+.spacer {
+    width: 106px;
+    height: 50px;
+}
+
+.nav-text {
+    font-size: 1.5em;
+}
+
+.navbar {
+    background-color: var(--nav-color);
+}
+.intro {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.intro-text {
+    margin-top: 20px;
+    font-size: x-large;
+}
+.main {
+    border-radius: 20px;
+    background-color: var(--nav-color);
+    padding: 20px;
+    box-shadow: 5px 10px 18px #888888;
+    display: block;
+}
+.char {
+    padding: 0px 1px;
+    font-size: x-large;
+}
+.space {
+    padding: 0px 4px;
+}
+.results-container {
+    text-align: center;
+    display: none;
+}
+.results-list {
+    border-radius: 20px;
+    width: 220px;
+    padding: 0;
+    box-shadow: 5px 10px 18px #888888;
+    margin-right: 20px;
+}
+.results-list > li {
+    border: 2px solid black;
+    background-color: var(--nav-color);
+}
+
+.leaderboard-list {
+    border-radius: 20px;
+    width: 220px;
+    padding: 0;
+    box-shadow: 5px 10px 18px #888888;
+    margin-left: 20px;
+    border: 1px solid black;
+}
+.leaderboard-list > li {
+    border: 1px solid black;
+    background-color: var(--nav-color);
+}
+.leaderboard-header {
+    border-bottom: 2px solid black !important;
+}
+.dropdown-button {
+    padding: 0;
+}
+.dropdown-button:focus,
+.dropdown-button:active {
+    box-shadow: none;
+}
+.dropdown-svg {
+    transition: color 0.15s;
+    transition-timing-function: ease-out;
+}
+.dropdown-svg:hover {
+    color: var(--cyan);
+}
+.badge-pill {
+    background-color: var(--cyan);
+}
+.reload-button {
+    padding: 0;
+}
+.reload-button:focus,
+.reload-button:active {
+    box-shadow: none;
+}
+html {
+    overflow-y: overlay;
+}
+
+@media screen and (max-width: 220px) {
+    .results-list,
+    .leaderboard-list {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .results-container {
+        flex-direction: column;
+        align-items: center !important;
+    }
+
+    .results-list {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .leaderboard-list {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
