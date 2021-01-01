@@ -319,4 +319,6 @@ Thats it! We've finished coding the typing test workshop. You should feel proud 
 - Save our results in ```localStorage```. ```localStorage``` is a place on a user's browser to store data. We can store the results there, and fetch them every time we complete the typing test! [final demo](https://javascript-typing-test-v2.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v2#script.js).
 - Add a nice little navbar. We can add a navbar that links to your github and has a link to Hackclub. Just make sure to read the comment inside the HTML file. [final demo](https://javascript-typing-test-v3.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v3#index.html).
 
+A version with all of these features is [here](javascript-typing-test.netlify.app)
+
 If you have any questions, you can ping me on slack(@Gurshan) or [my github](https://github.com/gurshanbrar). 
