@@ -5,7 +5,7 @@ author: '@GurshanBrar'
 img: 'https://cloud-gny03pu07.vercel.app/0javascript_typing_test_cover.png'
 ---
 
-### First up, the project
+### The project
 Obviously we need to know what we'll build before starting the workshop, so here's the [final demo](https://javascript-typing-test-final.gurshanbrar.repl.co/) and the [final code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Final). These images show our final project:
 
 ![Screenshot of the final site for the test portion](https://cloud-1v9gb7z3j.vercel.app/0javascript_typing_test_final_image_1.png)
@@ -87,7 +87,7 @@ Therefore, a class we use is [```font-weight-light```](https://getbootstrap.com/
 To create the container to hold our text for typing, we use this code:
 ```html
 <div id="main" class="container main">
-	<div class="text-container" id="text-container"></div>
+    <div class="text-container" id="text-container"></div>
 </div>
 ```
 We use a simple ```<div>``` with the bootstrap class [```container```](https://getbootstrap.com/docs/4.5/layout/overview/#containers). ```container``` just means that our box will resize properly and look good on all devices. Inside that we have another ```<div>``` to hold our actual text. 
@@ -243,7 +243,54 @@ The ```!``` operator reverses the outcome of the condition. So if the key is ins
 We finally call our ```handleKey(key)``` function, and give the function access to our key. We'll make this next, but first a final code check. 
 
 #### Check In
-Check against [this repl](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Check-in#script.js) for assurance.
+Your Javascript at this point should look like this:
+<details>
+	
+```javascript
+'use strict';
+let main = document.getElementById('main');
+let textContainer = document.getElementById('text-container');
+let resultsContainer = document.getElementById('results');
+let wpmText = document.getElementById('wpm');
+let accuracyText = document.getElementById('accuracy');
+let timeText = document.getElementById('time');
+
+const invalidKeys = 'F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 Escape Tab CapsLock Shift Control Alt Meta ArrowLeft ArrowRight ArrowDown ArrowUp Enter'.split(
+	' ',
+);
+const text =
+	'Hello there! I hope your day is going well. Thanks for trying out my typing test. Did you know that this project was actually made for Hackclub? Hackclub is a worldwide, student led coding club for teens that strives to provide a comfortable and educational place to collaborate with others!';
+const textArr = text.split('');
+const htmlArr = textArr.map((item, index, array) => {
+	if (item === ' ') {
+	return `<span class="space" id="span${index}">${item}</span>`;
+	}
+	return `<span class="char" id="span${index}">${item}</span>`;
+});
+let errors = [];
+textContainer.innerHTML = htmlArr.join('');
+let firstTime = true;
+let currentPos = 0;
+let backspaceNeeded = false;
+let currentTime = 0;
+let repeat;
+
+document.addEventListener('keydown', event => {
+	if (event.key === ' ') {
+	event.preventDefault();
+	}
+	if (firstTime) {
+	firstTime = false;
+	repeat = setInterval(() => currentTime++, 1000);
+	}
+	if (event.location === 0 && !invalidKeys.includes(event.key)) {
+	handleKey(event.key);
+	}
+});
+```
+</details>
+
+You can also check against [this repl](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Check-in#script.js) for assurance.
 
 #### Section 3:
 In this section we make our ```handleKey(key)``` function! This function change the color of the key, changes the position of the key in the array, and forces backspaces. To start, add this at the end:
@@ -326,4 +373,4 @@ Thats it! We've finished coding the typing test workshop. You should feel proud 
 
 A version with all of these features is [here](javascript-typing-test.netlify.app)
 
-If you have any questions, you can ping me on slack(@Gurshan) or [my github](https://github.com/gurshanbrar). 
+If you have any questions, you can ping me on [my slack profile](hackclub.slack.com/U0198EM6ZA7) or [my github](https://github.com/gurshanbrar). 
