@@ -19,7 +19,8 @@ This project will be more fun to code if you have a general understanding of HTM
 Yes, **focus**. JK. This workshop will focus on Javascript, so you'll have a starter template including HTML and CSS that will be explained.
 
 ### The IDE
-An IDE (Integrated Development Environment) is just fancy speak for where your code will run. We'll be using [repl.it](https://repl.it) as our IDE because...  
+An IDE (Integrated Development Environment) is just fancy speak for where your code will run. We'll be using [repl.it](https://repl.it) as our IDE because...
+
 1. It saves your code in the cloud
 2. All you need is an internet connection and a web browser
 3. It's really easy to fork (copy) from
@@ -28,6 +29,7 @@ An IDE (Integrated Development Environment) is just fancy speak for where your c
 
 ## Step 0: Forking the starter repl
 To fork (copy) the starter template,
+
 1. Navigate to the [Starter Template](https://repl.it/@GurshanBrar/Javascript-Typing-Test-Starter)
 2. Edit anything and the template will be copied as one of your repls
 3. Click on the run button to run the website, and click on the "open in a new tab" button on the right of the url inside the repl's output.
@@ -91,6 +93,7 @@ To create the container to hold our text for typing, we use this code:
 We use a simple ```<div>``` with the bootstrap class [```container```](https://getbootstrap.com/docs/4.5/layout/overview/#containers). ```container``` just means that our box will resize properly and look good on all devices. Inside that we have another ```<div>``` to hold our actual text. 
 
 Now you may have some questions...
+
 1. **Why do we have so many ```id``` and ```class``` names?**. We have these because we will use them later on to reference our HTML elements in our CSS stylesheet and our Javascript.`
 2. **Why isn't there any text inside ```<div class="text-container" id="text-container"></div>```?**. As for the text, what we'll do is use Javsacript to add a bunch of ```<span>``` elements into this container. Our text will be in the Javascript file and each letter of the text will consist of a ```<span>``` element with the letter inside. This way we can dynamically change the color of each individual letter.
 
@@ -148,6 +151,7 @@ A Javascript function is a variable in which you can store code to run later on.
 
 ## Step 2: Coding our Javascript
 Now we'll code our Javascript! Our program will be split up into three blocks that provide functionality: ```handleKey(key)```, ```handleEnd()```, and the event listener. We'll also have variables defined at the beginning to assist these three blocks. Let me explain how our program will flow:
+
 1. First we'll declare variables for our text, time, position, etc.
 2. Then we'll start our event listener. Everytime a key is pressed it will check if the key is a valid symbol or letter. It'll forward the key to ```handleKey(key)``` if it is, otherwise ignore it.
 3. Everytime ```handleKey(key)``` gets a character, it checks it against the text. If it's correct it increments the position in the text and changes the letter's color to green. Otherwise it changes it to red and sets a ```backspaceNeeded``` variable.
@@ -315,6 +319,7 @@ Finally, we set the display of our ```main``` container to ```'none'``` and the 
 ![Image resembling finishing a race](https://cloud-ei7nqg21v.vercel.app/0finished.jpeg)
 
 Thats it! We've finished coding the typing test workshop. You should feel proud of yourself because you learned many new skills such as functions, backticks, operators, ```if``` statements, and more! This workshop is pretty hackable, though. Here are some examples of extending it:
+
 - A try again button! We can add a try again button to our workshop. Here's the [final demo](https://javascript-typing-test-final-1.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v1#index.html).
 - Save our results in ```localStorage```. ```localStorage``` is a place on a user's browser to store data. We can store the results there, and fetch them every time we complete the typing test! [final demo](https://javascript-typing-test-v2.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v2#script.js).
 - Add a nice little navbar. We can add a navbar that links to your github and has a link to Hackclub. Just make sure to read the comment inside the HTML file. [final demo](https://javascript-typing-test-v3.gurshanbrar.repl.co/) and [source code](https://repl.it/@GurshanBrar/Javascript-Typing-Test-v3#index.html).
