@@ -85,8 +85,8 @@ Therefore, a class we use is [```font-weight-light```](https://getbootstrap.com/
 To create the container to hold our text for typing, we use this code:
 ```html
 <div id="main" class="container main">
-		<div class="text-container" id="text-container"></div>
-	</div>
+	<div class="text-container" id="text-container"></div>
+</div>
 ```
 We use a simple ```<div>``` with the bootstrap class [```container```](https://getbootstrap.com/docs/4.5/layout/overview/#containers). ```container``` just means that our box will resize properly and look good on all devices. Inside that we have another ```<div>``` to hold our actual text. 
 
