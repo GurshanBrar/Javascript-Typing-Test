@@ -3,6 +3,17 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="title" content="Test Your Typing Speed!" />
+        <meta
+            name="description"
+            content="A typing speed test. Tells you WPM, accuracy, and time."
+        />
+        <meta property="og:title" content="Test Your Typing Speed!" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content="A typing speed test. Tells you WPM, accuracy, and time."
+        />
 
         <title>Typing Test</title>
 
@@ -20,18 +31,27 @@
     <body>
         <nav class="navbar">
             <!-- A container to center align elements inside it -->
-            <a class="hackclub-logo" href="https://hackclub.com">
+            <a
+                class="hackclub-logo"
+                href="https://hackclub.com"
+                aria-label="hackclub's website"
+            >
                 <img
                     src="https://assets.hackclub.com/flag-orpheus-top.svg"
                     height="60"
+                    alt=""
                 />
             </a>
             <div class="spacer"></div>
             <span class="nav-text font-weight-light my-2 mx-auto"
                 >Made for Hackclub</span
             >
-            <a class="github-logo" href="https://www.github.com/gurshanbrar">
-                <svg width="50" height="50" viewBox="0 0 16 16">
+            <a
+                class="github-logo"
+                href="https://www.github.com/gurshanbrar"
+                aria-label="my github"
+            >
+                <svg width="50" height="50" viewBox="0 0 16 16" alt="">
                     <path
                         fill-rule="evenodd"
                         d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
@@ -40,229 +60,251 @@
             </a>
         </nav>
         <!-- Content -->
-        <div class="intro">
-            <h1 class="intro-heading">Typing Test</h1>
-            <p class="font-weight-light intro-text">
-                This is a typing speed test! Type a letter to begin.
-            </p>
-        </div>
+        <main>
+            <div class="intro">
+                <h1 class="intro-heading">Typing Test</h1>
+                <p class="font-weight-light intro-text">
+                    This is a typing speed test! Type a letter to begin.
+                </p>
+            </div>
 
-        <div id="main" class="container main">
-            <div class="text-container" id="text-container"></div>
-        </div>
-        <div
-            class="justify-content-center align-items-start results-container"
-            id="results"
-        >
-            <!-- Results UL -->
-            <ul class="list-group d-inline-block results-list">
-                <li class="list-group-item font-weight-bold results-header">
-                    Your Results
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>WPM:</span
-                    ><span class="font-weight-light" id="wpm"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Accuracy:</span
-                    ><span class="font-weight-light" id="accuracy"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Time:</span
-                    ><span class="font-weight-light" id="time"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-center">
-                    <button id="reload-button" class="btn reload-button">
-                        <img
-                            src="https://cloud-603j07ump.vercel.app/0reload.svg"
-                        />
-                    </button>
-                </li>
-            </ul>
-            <!-- Leaderboard -->
-            <ul class="list-group leaderboard-list d-block">
-                <li class="list-group-item font-weight-bold leaderboard-header">
-                    Recent Scores
-                </li>
-
-                <!-- LI:1 -->
-                <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                    <span class="badge badge-primary badge-pill">1</span>
-                    <span class="leaderboard-first">none</span>
-                    <button
-                        class="btn dropdown-button"
-                        data-toggle="collapse"
-                        data-target="#collapse-first"
-                        type="button"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="23"
-                            height="23"
-                            fill="currentColor"
-                            class="bi bi-arrow-down-circle dropdown-svg"
-                            viewBox="0 0 16 16"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
-                            />
-                        </svg>
-                    </button>
-                </li>
-
-                <!-- Collapse:1 -->
-                <div class="collapse" id="collapse-first">
+            <div id="main" class="container main">
+                <div class="text-container" id="text-container"></div>
+            </div>
+            <div
+                class="justify-content-center align-items-start results-container"
+                id="results"
+            >
+                <!-- Results UL -->
+                <ul class="list-group d-inline-block results-list">
+                    <li class="list-group-item font-weight-bold results-header">
+                        Your Results
+                    </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>WPM:</span
-                        ><span
-                            class="font-weight-light leaderboard-first"
-                            id="wpm"
-                            >none</span
-                        >
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Accuracy:</span>
-
-                        <span
-                            class="font-weight-light leaderboard-first"
-                            id="accuracy"
-                            >none</span
-                        >
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Time:</span
-                        ><span
-                            class="font-weight-light leaderboard-first"
-                            id="time"
-                            >none</span
-                        >
-                    </li>
-                </div>
-
-                <!-- LI: 2 -->
-                <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                    <span class="badge badge-primary badge-pill">2</span>
-                    <span class="leaderboard-second">none</span>
-
-                    <button
-                        class="btn dropdown-button"
-                        data-toggle="collapse"
-                        data-target="#collapse-second"
-                        type="button"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="23"
-                            height="23"
-                            fill="currentColor"
-                            class="bi bi-arrow-down-circle dropdown-svg"
-                            viewBox="0 0 16 16"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
-                            />
-                        </svg>
-                    </button>
-                </li>
-
-                <!-- Collapse: 2 -->
-                <div class="collapse" id="collapse-second">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>WPM:</span
-                        ><span
-                            class="font-weight-light leaderboard-second"
-                            id="wpm"
-                            >none</span
-                        >
+                        ><span class="font-weight-light" id="wpm"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Accuracy:</span
-                        ><span
-                            class="font-weight-light leaderboard-second"
-                            id="accuracy"
-                            >none</span
-                        >
+                        ><span class="font-weight-light" id="accuracy"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Time:</span
-                        ><span
-                            class="font-weight-light leaderboard-second"
-                            id="time"
-                            >none</span
-                        >
+                        ><span class="font-weight-light" id="time"></span>
                     </li>
-                </div>
-                <!-- LI: 3 -->
-                <li
-                    class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                    <span class="badge badge-primary badge-pill">3</span>
-                    <span class="leaderboard-third">none</span>
-
-                    <button
-                        class="btn dropdown-button"
-                        data-toggle="collapse"
-                        data-target="#collapse-third"
-                        type="button"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="23"
-                            height="23"
-                            fill="currentColor"
-                            class="bi bi-arrow-down-circle dropdown-svg"
-                            viewBox="0 0 16 16"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                    <li class="list-group-item d-flex justify-content-center">
+                        <button id="reload-button" class="btn reload-button">
+                            <img
+                                src="https://cloud-603j07ump.vercel.app/0reload.svg"
                             />
-                        </svg>
-                    </button>
-                </li>
-
-                <!-- Collapse: 3 -->
-                <div class="collapse" id="collapse-third">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>WPM:</span
-                        ><span
-                            class="font-weight-light leaderboard-third"
-                            id="wpm"
-                            >none</span
-                        >
+                        </button>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Accuracy:</span
-                        ><span
-                            class="font-weight-light leaderboard-third"
-                            id="accuracy"
-                            >none</span
-                        >
+                </ul>
+                <!-- Leaderboard -->
+                <ul class="list-group leaderboard-list d-block">
+                    <li
+                        class="list-group-item font-weight-bold leaderboard-header"
+                    >
+                        Recent Scores
                     </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Time:</span
-                        ><span
-                            class="font-weight-light leaderboard-third"
-                            id="time"
-                            >none</span
+
+                    <!-- LI:1 -->
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                        <span class="badge badge-primary badge-pill">1</span>
+                        <span class="leaderboard-first">none</span>
+                        <button
+                            class="btn dropdown-button"
+                            data-toggle="collapse"
+                            data-target="#collapse-first"
+                            type="button"
                         >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="23"
+                                height="23"
+                                fill="currentColor"
+                                class="bi bi-arrow-down-circle dropdown-svg"
+                                viewBox="0 0 16 16"
+                                alt=""
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                                />
+                            </svg>
+                        </button>
                     </li>
-                </div>
 
-                <li class="list-group-item">
-                    <button onclick="clearStorage()" class="btn btn-info">
-                        Clear Scores
-                    </button>
-                </li>
-            </ul>
-        </div>
+                    <!-- Collapse:1 -->
+                    <div class="collapse" id="collapse-first">
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>WPM:</span
+                            ><span
+                                class="font-weight-light leaderboard-first"
+                                id="wpm"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Accuracy:</span>
 
+                            <span
+                                class="font-weight-light leaderboard-first"
+                                id="accuracy"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Time:</span
+                            ><span
+                                class="font-weight-light leaderboard-first"
+                                id="time"
+                                >none</span
+                            >
+                        </li>
+                    </div>
+
+                    <!-- LI: 2 -->
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                        <span class="badge badge-primary badge-pill">2</span>
+                        <span class="leaderboard-second">none</span>
+
+                        <button
+                            class="btn dropdown-button"
+                            data-toggle="collapse"
+                            data-target="#collapse-second"
+                            type="button"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="23"
+                                height="23"
+                                fill="currentColor"
+                                class="bi bi-arrow-down-circle dropdown-svg"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                                />
+                            </svg>
+                        </button>
+                    </li>
+
+                    <!-- Collapse: 2 -->
+                    <div class="collapse" id="collapse-second">
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>WPM:</span
+                            ><span
+                                class="font-weight-light leaderboard-second"
+                                id="wpm"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Accuracy:</span
+                            ><span
+                                class="font-weight-light leaderboard-second"
+                                id="accuracy"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Time:</span
+                            ><span
+                                class="font-weight-light leaderboard-second"
+                                id="time"
+                                >none</span
+                            >
+                        </li>
+                    </div>
+                    <!-- LI: 3 -->
+                    <li
+                        class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                        <span class="badge badge-primary badge-pill">3</span>
+                        <span class="leaderboard-third">none</span>
+
+                        <button
+                            class="btn dropdown-button"
+                            data-toggle="collapse"
+                            data-target="#collapse-third"
+                            type="button"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="23"
+                                height="23"
+                                fill="currentColor"
+                                class="bi bi-arrow-down-circle dropdown-svg"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                                />
+                            </svg>
+                        </button>
+                    </li>
+
+                    <!-- Collapse: 3 -->
+                    <div class="collapse" id="collapse-third">
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>WPM:</span
+                            ><span
+                                class="font-weight-light leaderboard-third"
+                                id="wpm"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Accuracy:</span
+                            ><span
+                                class="font-weight-light leaderboard-third"
+                                id="accuracy"
+                                >none</span
+                            >
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between"
+                        >
+                            <span>Time:</span
+                            ><span
+                                class="font-weight-light leaderboard-third"
+                                id="time"
+                                >none</span
+                            >
+                        </li>
+                    </div>
+
+                    <li class="list-group-item">
+                        <button onclick="clearStorage()" class="btn btn-info">
+                            Clear Scores
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </main>
         <!-- Bootstrap's scripts -->
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
