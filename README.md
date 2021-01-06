@@ -234,7 +234,9 @@ The function we use first checks if ```event.key``` is a space (empty string). I
 
 We then check if it's the first key that was typed. The code in an [```if```](https://www.w3schools.com/js/js_if_else.asp) statement in Javascript runs if the condition in the parentheses is ```true```. Otherwise it skips over. Since ```firstTime``` is literally set to ```true```, the code runs. The code first changes the variable to ```false``` so that it doesn't run again, and sets an ```interval```. 
 
-[```setInterval()```](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) repeats a function periodically. We give it a time in miliseconds to repeat, and a function to call. The function just increases the ```time``` variable, so it's basically a timer we created.
+[```setInterval()```](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) repeats a function periodically. We give it a time in miliseconds to repeat, and a function to call. The function inside of it is called an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). 
+
+Arrow functions are just normal functions but shorthand. The first part of our arrow function is `()`. `()` is usually where parameters would go. A parameter is a variable given to a function to allow the variable's use inside the function. We need no parameters, so we give it an empty value. We then use `=>` to represent that it's an arrow function. After `=>` we write our function normally. Our function's body in this case just increments the currentTime by 1. `++` is an operator that increases the value of the operand by 1 (just increases the ```currentTime``` variable, and it repeats every 1000 miliseconds (1 second), so it's basically a timer we created).
 
 We do another equality check, this time making sure that the [```location```](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location) property of the event is ```0```, and making sure that the key isn't inside our ```invalidKeys``` array. The ```location``` property being zero means that the key was one of the general key presses. Additionally we use our array ```invalidKeys```'s, built-in [```includes()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) method to check if an element is inside that array.
 
@@ -328,13 +330,15 @@ function handleKey(key) {
 ```
 We first get the span element that corresponds with the current position. We get its [```style```](https://www.w3schools.com/jsref/prop_html_style.asp) property to modify the CSS. 
 
-We make sure the there isn't a backspace needed. If there isn't, we validate the key pressed by comparing its equality with the current position in the ```textArr```. If it's correct we set the color to green and increment the ```currentPos``` variable. 
+By using `if (!backspaceNeeded) {` We make sure the there isn't a backspace needed. Meaning, we make sure the `backspaceNeeded` isn't true. If it isn't, we validate the key pressed by comparing its equality with the current position in the ```textArr```. `textArr[currentPos]` means that we are accessing the element at `currentPos` index of the array. If it's correct we set the color to green (`span.color = 'green';`) by using the CSS `color` property, and increment the ```currentPos``` variable. `++` means to increase the value before it by 1.
 
-If it isn't correct, we check if it's a space or letter, than change either the ```backgroundColor``` or the ```color```. If it isn't correct we also set ```backspaceNeeded``` to true and add the letter into the ```errors``` array.
+If the pressed key isn't correct, meaning that the `else` statement gets executed, we check if the current letter inside `textArr` is a space or letter in another `if` statement. A space refers to `' '` and it's a letter if it isn't a space. We then change either the ```backgroundColor``` or the ```color```. `backgroundColor` is required to be changed if the letter in `textArr` (the letter the user needs to type) is a space since `color` only applies to text. If it isn't correct we also set ```backspaceNeeded``` to true and add the letter into the ```errors``` array. 
 
-If there is a backspace needed, we only execute code if the ```key``` is a backspace. We change the color like before, and reset the ```backspaceNeeded``` variable.
+The [`push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method is a method used on arrays to add an element at the end of the array. We add the letter that was supposed to be typed at the end of the `errors` array so that we can log how many errors the user made.
 
-At the end we make sure that if the current position has been incremented to ```textArr.length```, we stop the timer function and call our ```handleEnd()``` function to show results. Since array indexes reference **one more than the index value** having an index equivalent to the array's length would reference a non-existant value.
+If there is a backspace needed, we only execute code if the ```key``` is a backspace. We do this so that our program doesn't continue when a backspace is needed. After doing the appropriate check for space or letter, we change the color to `black` if it's a letter, and `transparent` if it's a space. `transparent` is the default `backgroundColor` and `black` is the default color in our case. This resets the colors back to normal. Finally we reset the ```backspaceNeeded``` variable if the key pressed was indeed a backspace.
+
+At the end we make sure that if the current position has been incremented to ```textArr.length```, we stop the timer function by doing `clearInterval(repeat)`. This takes the `setInterval()` method's variable `repeat` that we assigned, and stops it from repeating. We finally call our ```handleEnd()``` function to show the results. Since array indexes reference **one more than the index value** having an index equivalent to the array's length would reference a non-existant value. Therefore we know that we have reached the end of the program.
 
 #### Section 4:
 Now we need to add the final segement of our code: the ```handleEnd()``` function. This function calculates the results, modifies the HTML, and changes the display properties that hide the results. Add this at the end:
@@ -353,13 +357,13 @@ function handleEnd() {
     resultsContainer.style.display = 'block';
 }
 ```
-First off, we calculate the time, the wpm, and the accuracy. If you want to learn how they are calculated, refer to [this site](https://www.speedtypingonline.com/typing-equations). 
+First off, we calculate the time, the wpm, and the accuracy. If you want to learn how they are calculated, refer to [this site](https://www.speedtypingonline.com/typing-equations). But basically, we use `Math.floor()` to round results down, and divide by integers to compute our result. We finally store them in variables. Javascript math operations follow the order of operations (PEMDAS). Therefore we can ensure that our result is accurate.
 
 As for the time, we get the minutes first. To get the minutes we divide the time by 60. The remainder is chopped off because we use ```Math.floor()``` (```Math.floor()``` rounds the result down). We then store the leftover seconds in ```seconds```. We modify the ```innerHTML``` properties of our ```wpmText```, ```accuracyText```, and ```timeText``` variables. Remember that these variables were declared at the very top of our file and refer to HTML elements. 
 
 ![Image describing ```innerHTML```, ```outerHTML```, and ```innerText```](https://cloud-ei7nqg21v.vercel.app/1inner_html_demo.png)
 
-Finally, we set the display of our ```main``` container to ```'none'``` and the ```resultsContainer``` to ```'block'```. This hides the text and shows the results.
+Finally, we set the display of our ```main``` container to ```'none'``` and the ```resultsContainer``` to ```'block'```. We can do this by referencing the HTML `style` attribute. The `style` attribute adds an inline `style` to the HTML element. To create the `style` attribute we can reference it as an object `key`. We can then add CSS styles inside of it. Our style hides the text and shows the results by using the CSS `display` property. Remember we set the display of our `resultsContainer` to `none`? Our Javascript `style` attribute overrides that property and returns the `resultsContainer` back to its default value. We now set a new property on the `main` container to hide it.
 
 ## Step 3: Extras
 
