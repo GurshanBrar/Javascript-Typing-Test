@@ -373,4 +373,4 @@ Thats it! We've finished coding the typing test workshop. You should feel proud 
 
 A version with all of these features is [here](javascript-typing-test.netlify.app)
 
-If you have any questions, you can ping me on [my slack profile](hackclub.slack.com/team/U0198EM6ZA7) or [my github](https://github.com/gurshanbrar). 
+If you have any questions, you can message me on [Slack](hackclub.slack.com/team/U0198EM6ZA7) or [visit my GitHub](https://github.com/gurshanbrar). 
